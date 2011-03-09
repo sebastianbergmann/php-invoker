@@ -23,6 +23,9 @@
   <filter>
     <whitelist addUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">PHP</directory>
+      <exclude>
+       <file>PHP/Invoker/Autoload.php</file>
+      </exclude>
     </whitelist>
   </filter>
 </phpunit>
