@@ -53,6 +53,9 @@
    <pearinstaller>
     <min>1.9.2</min>
    </pearinstaller>
+   <extension>
+    <name>pcntl</name>
+   </extension>
   </required>
  </dependencies>
  <phprelease/>
