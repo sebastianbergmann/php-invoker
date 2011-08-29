@@ -12,10 +12,6 @@
     </testsuite>
   </testsuites>
 
-  <php>
-    <const name="PHP_INVOKER_TESTSUITE" value="true"/>
-  </php>
-
   <logging>
     <log type="coverage-html" target="build/coverage" title="php-invoker"
          charset="UTF-8" yui="true" highlight="true"
