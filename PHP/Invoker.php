@@ -84,7 +84,9 @@ class PHP_Invoker
 
         try {
             $result = call_user_func_array($callable, $arguments);
-        } catch (Exception $e) {
+        }
+
+        catch (Exception $e) {
             pcntl_alarm(0);
             throw $e;
         }
