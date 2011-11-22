@@ -82,7 +82,12 @@ class PHP_Invoker
         pcntl_signal(SIGALRM, array($this, 'callback'), TRUE);
         pcntl_alarm($timeout);
 
-        $result = call_user_func_array($callable, $arguments);
+        try {
+            $result = call_user_func_array($callable, $arguments);
+        } catch (Exception $e) {
+            pcntl_alarm(0);
+            throw $e;
+        }
 
         pcntl_alarm(0);
 
