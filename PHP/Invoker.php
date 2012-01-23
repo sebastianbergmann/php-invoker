@@ -60,6 +60,11 @@ declare(ticks = 1);
 class PHP_Invoker
 {
     /**
+     * @var integer
+     */
+    protected $timeout;
+
+    /**
      * Invokes a callable and raises an exception when the execution does not
      * finish before the specified timeout.
      *
@@ -82,6 +87,8 @@ class PHP_Invoker
         pcntl_signal(SIGALRM, array($this, 'callback'), TRUE);
         pcntl_alarm($timeout);
 
+        $this->timeout = $timeout;
+
         try {
             $result = call_user_func_array($callable, $arguments);
         }
@@ -101,6 +108,11 @@ class PHP_Invoker
      */
     public function callback()
     {
-        throw new PHP_Invoker_TimeoutException;
+        throw new PHP_Invoker_TimeoutException(
+          sprintf(
+            'Execution aborted after %s',
+            PHP_Timer::secondsToTimeString($this->timeout)
+          )
+        );
     }
 }
