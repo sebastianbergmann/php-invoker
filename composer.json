@@ -22,7 +22,10 @@
         "bin-dir": "bin"
     },
     "autoload": {
-        "classmap": ["PHP/"]
+        "psr-0": {
+            "PHP_Invoker": ""
+        },
+        "files": ["PHP/Invoker/Autoload.php"]
     },
     "minimum-stability": "dev",
     "extra": {
