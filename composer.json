@@ -27,7 +27,6 @@
     },
     "autoload": {
         "files": [
-            "PHP/Invoker/Autoload.php"
         ]
     },
     "include-path": [
