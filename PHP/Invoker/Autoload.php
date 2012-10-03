@@ -43,34 +43,25 @@
  * @since      File available since Release 1.0.0
  */
 
-function php_invoker_autoload($class = NULL) {
-    static $classes = NULL;
-    static $path = NULL;
+spl_autoload_register(
+  function ($class)
+  {
+      static $classes = NULL;
+      static $path = NULL;
 
-    if ($classes === NULL) {
-        $classes = array(
-          'php_invoker' => '/Invoker.php',
-          'php_invoker_timeoutexception' => '/Invoker/TimeoutException.php'
-        );
+      if ($classes === NULL) {
+          $classes = array(
+            'php_invoker' => '/Invoker.php',
+            'php_invoker_timeoutexception' => '/Invoker/TimeoutException.php'
+          );
 
-        $path = dirname(dirname(__FILE__));
-    }
+          $path = dirname(dirname(__FILE__));
+      }
 
-    if ($class === NULL) {
-        $result = array(__FILE__);
+      $cn = strtolower($class);
 
-        foreach ($classes as $file) {
-            $result[] = $path . $file;
-        }
-
-        return $result;
-    }
-
-    $cn = strtolower($class);
-
-    if (isset($classes[$cn])) {
-        require $path . $classes[$cn];
-    }
-}
-
-spl_autoload_register('php_invoker_autoload');
+      if (isset($classes[$cn])) {
+          require $path . $classes[$cn];
+      }
+  }
+);
