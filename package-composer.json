@@ -11,9 +11,11 @@
         "irc": "irc://irc.freenode.net/phpunit"
     },
     "autoload": {
-        "files": []
+        "classmap": [ "PHP/" ]
     },
     "include_path": [
         ""
-    ]
+    ],
+    "version": false,
+    "time": false
 }
