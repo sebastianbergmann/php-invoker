@@ -14,8 +14,6 @@
             "role": "lead"
         }
     ],
-    "version": "1.1.1",
-    "time": "2012-09-23",
     "support": {
         "issues": "https://github.com/sebastianbergmann/php-invoker/issues",
         "irc": "irc://irc.freenode.net/phpunit"
@@ -26,7 +24,8 @@
         "ext-pcntl": "*"
     },
     "autoload": {
-        "files": [
+        "classmap": [
+            "PHP/"
         ]
     },
     "include-path": [
