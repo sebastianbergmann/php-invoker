@@ -5,7 +5,7 @@
     "keywords": [
         "process"
     ],
-    "homepage": "http://www.phpunit.de/",
+    "homepage": "https://github.com/sebastianbergmann/php-invoker/",
     "license": "BSD-3-Clause",
     "authors": [
         {
