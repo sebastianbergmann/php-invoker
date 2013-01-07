@@ -4,7 +4,7 @@ declare(ticks = 1);
 /**
  * PHP_Invoker
  *
- * Copyright (c) 2011-2013, Sebastian Bergmann <sb@sebastian-bergmann.de>.
+ * Copyright (c) 2011-2013, Sebastian Bergmann <sebastian@phpunit.de>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -38,8 +38,8 @@ declare(ticks = 1);
  *
  * @package    PHP
  * @subpackage Invoker
- * @author     Sebastian Bergmann <sb@sebastian-bergmann.de>
- * @copyright  2011-2013 Sebastian Bergmann <sb@sebastian-bergmann.de>
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  2011-2013 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://github.com/sebastianbergmann/php-invoker
  * @since      File available since Release 1.0.0
@@ -60,8 +60,8 @@ require_once FIXTURE_PATH . 'TestCallable.php';
  *
  * @package    PHP
  * @subpackage Invoker
- * @author     Sebastian Bergmann <sb@sebastian-bergmann.de>
- * @copyright  2011-2013 Sebastian Bergmann <sb@sebastian-bergmann.de>
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  2011-2013 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @version    Release: @package_version@
  * @link       http://github.com/sebastianbergmann/php-invoker
