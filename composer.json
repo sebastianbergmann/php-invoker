@@ -19,8 +19,8 @@
         "irc": "irc://irc.freenode.net/phpunit"
     },
     "require": {
-        "php": ">=5.2.7",
-        "phpunit/php-timer": ">=1.0.1@stable",
+        "php": ">=5.4.7",
+        "phpunit/php-timer": ">=1.1.0",
         "ext-pcntl": "*"
     },
     "autoload": {
