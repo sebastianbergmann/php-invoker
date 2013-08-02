@@ -51,7 +51,7 @@
  <dependencies>
   <required>
    <php>
-    <min>5.4.7</min>
+    <min>5.2.7</min>
    </php>
    <pearinstaller>
     <min>1.9.4</min>
@@ -59,7 +59,7 @@
    <package>
     <name>PHP_Timer</name>
     <channel>pear.phpunit.de</channel>
-    <min>1.1.0</min>
+    <min>1.0.4</min>
    </package>
    <extension>
     <name>pcntl</name>
