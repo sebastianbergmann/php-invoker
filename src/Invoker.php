@@ -13,19 +13,12 @@ declare(ticks = 1);
 /**
  * Utility class for invoking callables with a timeout.
  *
- * @package    PHP
- * @subpackage Invoker
- * @author     Sebastian Bergmann <sebastian@phpunit.de>
- * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
- * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
- * @version    Release: @package_version@
- * @link       http://github.com/sebastianbergmann/php-invoker
  * @since      Class available since Release 1.0.0
  */
 class PHP_Invoker
 {
     /**
-     * @var integer
+     * @var int
      */
     protected $timeout;
 
@@ -33,9 +26,9 @@ class PHP_Invoker
      * Invokes a callable and raises an exception when the execution does not
      * finish before the specified timeout.
      *
-     * @param  callable $callable
-     * @param  array    $arguments
-     * @param  integer  $timeout in seconds
+     * @param  callable                 $callable
+     * @param  array                    $arguments
+     * @param  int                      $timeout   in seconds
      * @return mixed
      * @throws InvalidArgumentException
      */
