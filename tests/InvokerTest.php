@@ -8,60 +8,41 @@
  * file that was distributed with this source code.
  */
 
-declare(ticks = 1);
+declare(strict_types=1);
 
-if (!defined('FIXTURE_PATH')) {
-    define(
-      'FIXTURE_PATH',
-      dirname(__FILE__) . DIRECTORY_SEPARATOR .
-      '_fixture' . DIRECTORY_SEPARATOR
-    );
-}
+namespace SebastianBergmann\Invoker;
 
-/**
- * Tests for PHP_Invoker.
- *
- * @since      Class available since Release 1.0.0
- */
-class PHP_InvokerTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class PHP_InvokerTest extends TestCase
 {
-    protected $callable;
-    protected $invoker;
+    /**
+     * @var \TestCallable
+     */
+    private $callable;
+
+    /**
+     * @var Invoker
+     */
+    private $invoker;
 
     protected function setUp()
     {
-        $this->callable = new TestCallable;
-        $this->invoker  = new PHP_Invoker;
+        $this->callable = new \TestCallable;
+        $this->invoker  = new Invoker;
     }
 
     public function testCallableIsCorrectlyInvoked()
     {
         $this->assertTrue(
-          $this->invoker->invoke(array($this->callable, 'test'), array(0), 1)
+            $this->invoker->invoke(array($this->callable, 'test'), array(0), 1)
         );
     }
 
-    /**
-     * @expectedException PHP_Invoker_TimeoutException
-     */
     public function testExceptionIsRaisedOnTimeout()
     {
+        $this->expectException(TimeoutException::class);
+
         $this->invoker->invoke(array($this->callable, 'test'), array(2), 1);
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testExceptionIsRaisedOnInvalidCallable()
-    {
-        $this->invoker->invoke(NULL, array(), 1);
-    }
-
-    /**
-     * @expectedException InvalidArgumentException
-     */
-    public function testExceptionIsRaisedOnInvalidTimeout()
-    {
-        $this->invoker->invoke(array($this->callable, 'test'), array(), NULL);
     }
 }

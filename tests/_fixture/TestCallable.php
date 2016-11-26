@@ -1,9 +1,12 @@
 <?php
+declare(strict_types=1);
+
 class TestCallable
 {
-    public function test($sleep)
+    public function test(int $sleep): bool
     {
         sleep($sleep);
-        return TRUE;
+
+        return true;
     }
 }

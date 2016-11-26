@@ -12,6 +12,6 @@ declare(strict_types=1);
 
 namespace SebastianBergmann\Invoker;
 
-final class TimeoutException extends \RuntimeException implements Exception
+interface Exception
 {
 }
