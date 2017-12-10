@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 /*
- * This file is part of the PHP_Invoker package.
+ * This file is part of php-invoker.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -8,13 +8,14 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace SebastianBergmann\Invoker;
 
 use PHPUnit\Framework\TestCase;
 
-class PHP_InvokerTest extends TestCase
+/**
+ * @covers \SebastianBergmann\Invoker\Invoker
+ */
+class InvokerTest extends TestCase
 {
     /**
      * @var \TestCallable
@@ -26,23 +27,24 @@ class PHP_InvokerTest extends TestCase
      */
     private $invoker;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->callable = new \TestCallable;
         $this->invoker  = new Invoker;
     }
 
-    public function testCallableIsCorrectlyInvoked()
+    public function testExecutionOfCallableIsNotAbortedWhenTimeoutIsNotReached(): void
     {
         $this->assertTrue(
-            $this->invoker->invoke(array($this->callable, 'test'), array(0), 1)
+            $this->invoker->invoke([$this->callable, 'test'], [0], 1)
         );
     }
 
-    public function testExceptionIsRaisedOnTimeout()
+    public function testExecutionOfCallableIsAbortedWhenTimeoutIsReached(): void
     {
         $this->expectException(TimeoutException::class);
+        $this->expectExceptionMessage('Execution aborted after 1 second');
 
-        $this->invoker->invoke(array($this->callable, 'test'), array(2), 1);
+        $this->invoker->invoke([$this->callable, 'test'], [2], 1);
     }
 }

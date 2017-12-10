@@ -1,6 +1,6 @@
-# PHP_Invoker
+# php-invoker
 
-`PHP_Invoker` is an utility class for invoking callables with a timeout.
+`php-invoker` provides the means to invoke a callable with a timeout.
 
 ## Installation
 
