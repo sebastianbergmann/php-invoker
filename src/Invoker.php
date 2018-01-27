@@ -24,7 +24,7 @@ final class Invoker
     {
         \pcntl_signal(
             \SIGALRM,
-            function () {
+            function (): void {
                 throw new TimeoutException(
                     \sprintf(
                         'Execution aborted after %d second%s',
