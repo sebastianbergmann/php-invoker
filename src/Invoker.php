@@ -7,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace SebastianBergmann\Invoker;
 
 final class Invoker
@@ -22,6 +21,12 @@ final class Invoker
      */
     public function invoke(callable $callable, array $arguments, int $timeout)
     {
+        if (!$this->canInvokeWithTimeout()) {
+            throw new ProcessControlExtensionNotLoadedException(
+                'The pctnl (process control) extension for PHP is required'
+            );
+        }
+
         \pcntl_signal(
             \SIGALRM,
             function (): void {
@@ -52,5 +57,10 @@ final class Invoker
         \pcntl_alarm(0);
 
         return $result;
+    }
+
+    public function canInvokeWithTimeout(): bool
+    {
+        return \function_exists('pcntl_signal') && \function_exists('pcntl_async_signals') && \function_exists('pcntl_alarm');
     }
 }

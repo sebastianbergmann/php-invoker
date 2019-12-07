@@ -7,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace SebastianBergmann\Invoker;
 
 use PHPUnit\Framework\TestCase;
@@ -15,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \SebastianBergmann\Invoker\Invoker
  */
-class InvokerTest extends TestCase
+final class InvokerTest extends TestCase
 {
     /**
      * @var \TestCallable
@@ -33,6 +32,9 @@ class InvokerTest extends TestCase
         $this->invoker  = new Invoker;
     }
 
+    /**
+     * @requires extension pcntl
+     */
     public function testExecutionOfCallableIsNotAbortedWhenTimeoutIsNotReached(): void
     {
         $this->assertTrue(
@@ -40,11 +42,22 @@ class InvokerTest extends TestCase
         );
     }
 
+    /**
+     * @requires extension pcntl
+     */
     public function testExecutionOfCallableIsAbortedWhenTimeoutIsReached(): void
     {
         $this->expectException(TimeoutException::class);
         $this->expectExceptionMessage('Execution aborted after 1 second');
 
         $this->invoker->invoke([$this->callable, 'test'], [2], 1);
+    }
+
+    /**
+     * @requires extension pcntl
+     */
+    public function testRequirementsCanBeChecked(): void
+    {
+        $this->assertTrue($this->invoker->canInvokeWithTimeout());
     }
 }
