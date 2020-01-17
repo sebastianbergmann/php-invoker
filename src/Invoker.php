@@ -17,6 +17,8 @@ final class Invoker
     private $timeout;
 
     /**
+     * @return mixed
+     *
      * @throws \Throwable
      */
     public function invoke(callable $callable, array $arguments, int $timeout)
