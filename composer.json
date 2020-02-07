@@ -17,7 +17,6 @@
     "support": {
         "issues": "https://github.com/sebastianbergmann/php-invoker/issues"
     },
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
