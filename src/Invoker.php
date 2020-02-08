@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /*
- * This file is part of php-invoker.
+ * This file is part of phpunit/php-invoker.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -17,8 +17,6 @@ final class Invoker
     private $timeout;
 
     /**
-     * @return mixed
-     *
      * @throws \Throwable
      */
     public function invoke(callable $callable, array $arguments, int $timeout)
