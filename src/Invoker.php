@@ -23,7 +23,7 @@ final class Invoker
     {
         if (!$this->canInvokeWithTimeout()) {
             throw new ProcessControlExtensionNotLoadedException(
-                'The pctnl (process control) extension for PHP is required'
+                'The pcntl (process control) extension for PHP is required'
             );
         }
 
