@@ -2,6 +2,12 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## [3.0.1] - 2020-06-15
+
+### Changed
+
+* Tests etc. are now ignored for archive exports
+
 ## [3.0.0] - 2020-02-07
 
 ### Added
@@ -17,4 +23,5 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * This component is no longer supported on PHP 7.1 and PHP 7.2
 
-[3.0.0]: https://github.com/sebastianbergmann/php-invoker/compare/2.0.0...master
+[3.0.1]: https://github.com/sebastianbergmann/php-invoker/compare/3.0.0...3.0.1
+[3.0.0]: https://github.com/sebastianbergmann/php-invoker/compare/2.0.0...3.0.0
