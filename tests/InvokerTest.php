@@ -10,6 +10,7 @@
 namespace SebastianBergmann\Invoker;
 
 use PHPUnit\Framework\TestCase;
+use TestCallable;
 
 /**
  * @covers \SebastianBergmann\Invoker\Invoker
@@ -17,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 final class InvokerTest extends TestCase
 {
     /**
-     * @var \TestCallable
+     * @var TestCallable
      */
     private $callable;
 
@@ -28,7 +29,7 @@ final class InvokerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->callable = new \TestCallable;
+        $this->callable = new TestCallable;
         $this->invoker  = new Invoker;
     }
 

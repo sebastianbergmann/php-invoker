@@ -9,6 +9,8 @@
  */
 namespace SebastianBergmann\Invoker;
 
-final class TimeoutException extends \RuntimeException implements Exception
+use RuntimeException;
+
+final class TimeoutException extends RuntimeException implements Exception
 {
 }

@@ -9,6 +9,15 @@
  */
 namespace SebastianBergmann\Invoker;
 
+use const SIGALRM;
+use function call_user_func_array;
+use function function_exists;
+use function pcntl_alarm;
+use function pcntl_async_signals;
+use function pcntl_signal;
+use function sprintf;
+use Throwable;
+
 final class Invoker
 {
     /**
@@ -17,7 +26,7 @@ final class Invoker
     private $timeout;
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function invoke(callable $callable, array $arguments, int $timeout)
     {
@@ -27,11 +36,11 @@ final class Invoker
             );
         }
 
-        \pcntl_signal(
-            \SIGALRM,
+        pcntl_signal(
+            SIGALRM,
             function (): void {
                 throw new TimeoutException(
-                    \sprintf(
+                    sprintf(
                         'Execution aborted after %d second%s',
                         $this->timeout,
                         $this->timeout === 1 ? '' : 's'
@@ -43,24 +52,24 @@ final class Invoker
 
         $this->timeout = $timeout;
 
-        \pcntl_async_signals(true);
-        \pcntl_alarm($timeout);
+        pcntl_async_signals(true);
+        pcntl_alarm($timeout);
 
         try {
-            $result = \call_user_func_array($callable, $arguments);
-        } catch (\Throwable $t) {
-            \pcntl_alarm(0);
+            $result = call_user_func_array($callable, $arguments);
+        } catch (Throwable $t) {
+            pcntl_alarm(0);
 
             throw $t;
         }
 
-        \pcntl_alarm(0);
+        pcntl_alarm(0);
 
         return $result;
     }
 
     public function canInvokeWithTimeout(): bool
     {
-        return \function_exists('pcntl_signal') && \function_exists('pcntl_async_signals') && \function_exists('pcntl_alarm');
+        return function_exists('pcntl_signal') && function_exists('pcntl_async_signals') && function_exists('pcntl_alarm');
     }
 }
