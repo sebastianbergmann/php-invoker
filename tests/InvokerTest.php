@@ -10,6 +10,7 @@
 namespace SebastianBergmann\Invoker;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use TestCallable;
 
 /**
@@ -60,5 +61,44 @@ final class InvokerTest extends TestCase
     public function testRequirementsCanBeChecked(): void
     {
         $this->assertTrue($this->invoker->canInvokeWithTimeout());
+    }
+
+    /**
+     * @requires extension pcntl
+     */
+    public function testAlarmIsClearedWhenCallableTimeoutIsNotReached(): void
+    {
+        $this->assertTrue(
+            $this->invoker->invoke([$this->callable, 'test'], [0], 1)
+        );
+
+        try {
+            sleep(1);
+        } catch (TimeoutException $e) {
+            $this->fail('Alarm Timeout was not cleared');
+        }
+    }
+
+    /**
+     * @requires extension pcntl
+     */
+    public function testAlarmIsClearedWhenCallableThrowsException(): void
+    {
+        $exception = new RuntimeException();
+        $callable  = function () use ($exception): void {
+            throw $exception;
+        };
+
+        try {
+            $this->invoker->invoke($callable, [], 1);
+        } catch (RuntimeException $e) {
+            $this->assertSame($exception, $e);
+        }
+
+        try {
+            sleep(1);
+        } catch (TimeoutException $e) {
+            $this->fail('Alarm Timeout was not cleared');
+        }
     }
 }
