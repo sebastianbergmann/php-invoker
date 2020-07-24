@@ -14,6 +14,8 @@ use RuntimeException;
 use TestCallable;
 
 /**
+ * @requires extension pcntl
+ *
  * @covers \SebastianBergmann\Invoker\Invoker
  */
 final class InvokerTest extends TestCase
@@ -34,9 +36,6 @@ final class InvokerTest extends TestCase
         $this->invoker  = new Invoker;
     }
 
-    /**
-     * @requires extension pcntl
-     */
     public function testExecutionOfCallableIsNotAbortedWhenTimeoutIsNotReached(): void
     {
         $this->assertTrue(
@@ -44,9 +43,6 @@ final class InvokerTest extends TestCase
         );
     }
 
-    /**
-     * @requires extension pcntl
-     */
     public function testExecutionOfCallableIsAbortedWhenTimeoutIsReached(): void
     {
         $this->expectException(TimeoutException::class);
@@ -55,17 +51,11 @@ final class InvokerTest extends TestCase
         $this->invoker->invoke([$this->callable, 'test'], [2], 1);
     }
 
-    /**
-     * @requires extension pcntl
-     */
     public function testRequirementsCanBeChecked(): void
     {
         $this->assertTrue($this->invoker->canInvokeWithTimeout());
     }
 
-    /**
-     * @requires extension pcntl
-     */
     public function testAlarmIsClearedWhenCallableTimeoutIsNotReached(): void
     {
         $this->assertTrue(
@@ -79,9 +69,6 @@ final class InvokerTest extends TestCase
         }
     }
 
-    /**
-     * @requires extension pcntl
-     */
     public function testAlarmIsClearedWhenCallableThrowsException(): void
     {
         $exception = new RuntimeException();
