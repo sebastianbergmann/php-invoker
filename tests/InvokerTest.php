@@ -11,7 +11,7 @@ namespace SebastianBergmann\Invoker;
 
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
-use TestCallable;
+use SebastianBergmann\Invoker\TestFixture\TestCallable;
 
 /**
  * @requires extension pcntl
@@ -65,14 +65,15 @@ final class InvokerTest extends TestCase
         try {
             sleep(1);
         } catch (TimeoutException $e) {
-            $this->fail('Alarm Timeout was not cleared');
+            $this->fail('Alarm timeout was not cleared');
         }
     }
 
     public function testAlarmIsClearedWhenCallableThrowsException(): void
     {
-        $exception = new RuntimeException();
-        $callable  = function () use ($exception): void {
+        $exception = new RuntimeException;
+
+        $callable = static function () use ($exception): void {
             throw $exception;
         };
 
@@ -85,7 +86,7 @@ final class InvokerTest extends TestCase
         try {
             sleep(1);
         } catch (TimeoutException $e) {
-            $this->fail('Alarm Timeout was not cleared');
+            $this->fail('Alarm timeout was not cleared');
         }
     }
 }

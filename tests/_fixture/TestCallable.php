@@ -7,11 +7,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class TestCallable
+namespace SebastianBergmann\Invoker\TestFixture;
+
+use function sleep;
+
+final class TestCallable
 {
     public function test(int $sleep): bool
     {
-        \sleep($sleep);
+        sleep($sleep);
 
         return true;
     }
