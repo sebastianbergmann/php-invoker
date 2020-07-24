@@ -56,16 +56,10 @@ final class Invoker
         pcntl_alarm($timeout);
 
         try {
-            $result = call_user_func_array($callable, $arguments);
-        } catch (Throwable $t) {
+            return call_user_func_array($callable, $arguments);
+        } finally {
             pcntl_alarm(0);
-
-            throw $t;
         }
-
-        pcntl_alarm(0);
-
-        return $result;
     }
 
     public function canInvokeWithTimeout(): bool
