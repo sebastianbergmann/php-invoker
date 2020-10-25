@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.0.1@b1e2e30026936ef8d5bf6a354d1c3959b6231f44">
+  <file src="src/Invoker.php">
+    <MissingConstructor occurrences="1">
+      <code>$timeout</code>
+    </MissingConstructor>
+    <MissingReturnType occurrences="1">
+      <code>invoke</code>
+    </MissingReturnType>
+  </file>
+</files>
