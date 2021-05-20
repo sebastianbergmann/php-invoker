@@ -25,7 +25,7 @@ final class Invoker
     /**
      * @throws Throwable
      */
-    public function invoke(callable $callable, array $arguments, int $timeout)
+    public function invoke(callable $callable, array $arguments, int $timeout): mixed
     {
         if (!$this->canInvokeWithTimeout()) {
             throw new ProcessControlExtensionNotLoadedException(
