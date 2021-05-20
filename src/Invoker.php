@@ -20,10 +20,7 @@ use Throwable;
 
 final class Invoker
 {
-    /**
-     * @var int
-     */
-    private $timeout;
+    private int $timeout;
 
     /**
      * @throws Throwable

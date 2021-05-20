@@ -20,15 +20,9 @@ use SebastianBergmann\Invoker\TestFixture\TestCallable;
  */
 final class InvokerTest extends TestCase
 {
-    /**
-     * @var TestCallable
-     */
-    private $callable;
+    private TestCallable $callable;
 
-    /**
-     * @var Invoker
-     */
-    private $invoker;
+    private Invoker $invoker;
 
     protected function setUp(): void
     {
