@@ -58,7 +58,7 @@ final class InvokerTest extends TestCase
 
         try {
             sleep(1);
-        } catch (TimeoutException $e) {
+        } catch (TimeoutException) {
             $this->fail('Alarm timeout was not cleared');
         }
     }
@@ -79,7 +79,7 @@ final class InvokerTest extends TestCase
 
         try {
             sleep(1);
-        } catch (TimeoutException $e) {
+        } catch (TimeoutException) {
             $this->fail('Alarm timeout was not cleared');
         }
     }
