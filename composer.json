@@ -17,20 +17,21 @@
     "support": {
         "issues": "https://github.com/sebastianbergmann/php-invoker/issues"
     },
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "platform": {
-            "php": "7.3.0"
+            "php": "8.0.0"
         },
         "optimize-autoloader": true,
         "sort-packages": true
     },
     "require": {
-        "php": ">=7.3"
+        "php": ">=8.0"
     },
     "require-dev": {
         "ext-pcntl": "*",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^10.0"
     },
     "autoload": {
         "classmap": [
@@ -47,7 +48,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.1-dev"
+            "dev-master": "4.0-dev"
         }
     }
 }
