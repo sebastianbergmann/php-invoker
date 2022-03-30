@@ -21,13 +21,13 @@
     "prefer-stable": true,
     "config": {
         "platform": {
-            "php": "8.0.0"
+            "php": "8.1.0"
         },
         "optimize-autoloader": true,
         "sort-packages": true
     },
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.1"
     },
     "require-dev": {
         "ext-pcntl": "*",
