@@ -9,6 +9,7 @@
  */
 namespace SebastianBergmann\Invoker;
 
+use function sleep;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use SebastianBergmann\Invoker\TestFixture\TestCallable;
@@ -21,7 +22,6 @@ use SebastianBergmann\Invoker\TestFixture\TestCallable;
 final class InvokerTest extends TestCase
 {
     private TestCallable $callable;
-
     private Invoker $invoker;
 
     protected function setUp(): void
@@ -67,7 +67,8 @@ final class InvokerTest extends TestCase
     {
         $exception = new RuntimeException;
 
-        $callable = static function () use ($exception): void {
+        $callable = static function () use ($exception): void
+        {
             throw $exception;
         };
 
