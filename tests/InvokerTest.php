@@ -10,15 +10,14 @@
 namespace SebastianBergmann\Invoker;
 
 use function sleep;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use SebastianBergmann\Invoker\TestFixture\TestCallable;
 
-/**
- * @requires extension pcntl
- *
- * @covers \SebastianBergmann\Invoker\Invoker
- */
+#[RequiresPhpExtension('pcntl')]
+#[CoversClass(Invoker::class)]
 final class InvokerTest extends TestCase
 {
     private TestCallable $callable;
