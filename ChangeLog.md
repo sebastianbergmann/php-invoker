@@ -47,7 +47,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * This component is no longer supported on PHP 7.1 and PHP 7.2
 
-[4.0.0]: https://github.com/sebastianbergmann/php-invoker/compare/3.1.1...main
+[4.0.0]: https://github.com/sebastianbergmann/php-invoker/compare/3.1.1...4.0.0
 [3.1.1]: https://github.com/sebastianbergmann/php-invoker/compare/3.1.0...3.1.1
 [3.1.0]: https://github.com/sebastianbergmann/php-invoker/compare/3.0.2...3.1.0
 [3.0.2]: https://github.com/sebastianbergmann/php-invoker/compare/3.0.1...3.0.2
