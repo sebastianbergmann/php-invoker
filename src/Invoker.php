@@ -44,7 +44,6 @@ final class Invoker
                     )
                 );
             },
-            true
         );
 
         pcntl_async_signals(true);
