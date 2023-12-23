@@ -21,8 +21,6 @@ use Throwable;
 
 final class Invoker
 {
-    private int $timeout;
-
     /**
      * @throws Throwable
      */
@@ -36,20 +34,18 @@ final class Invoker
 
         pcntl_signal(
             SIGALRM,
-            function (): void
+            static function () use ($timeout): void
             {
                 throw new TimeoutException(
                     sprintf(
                         'Execution aborted after %d second%s',
-                        $this->timeout,
-                        $this->timeout === 1 ? '' : 's'
+                        $timeout,
+                        $timeout === 1 ? '' : 's'
                     )
                 );
             },
             true
         );
-
-        $this->timeout = $timeout;
 
         pcntl_async_signals(true);
         pcntl_alarm($timeout);
