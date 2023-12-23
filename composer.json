@@ -28,10 +28,10 @@
         "sort-packages": true
     },
     "require": {
-        "php": ">=8.2",
-        "ext-pcntl": "*"
+        "php": ">=8.2"
     },
     "require-dev": {
+        "ext-pcntl": "*",
         "phpunit/phpunit": "^11.0"
     },
     "autoload": {
@@ -43,6 +43,9 @@
         "classmap": [
             "tests/_fixture/"
         ]
+    },
+    "suggest": {
+        "ext-pcntl": "*"
     },
     "extra": {
         "branch-alias": {
