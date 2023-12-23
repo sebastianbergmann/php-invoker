@@ -11,6 +11,7 @@ namespace SebastianBergmann\Invoker;
 
 use const SIGALRM;
 use function call_user_func_array;
+use function extension_loaded;
 use function function_exists;
 use function pcntl_alarm;
 use function pcntl_async_signals;
@@ -62,6 +63,6 @@ final class Invoker
 
     public function canInvokeWithTimeout(): bool
     {
-        return function_exists('pcntl_signal') && function_exists('pcntl_async_signals') && function_exists('pcntl_alarm');
+        return extension_loaded('pcntl') && function_exists('pcntl_signal') && function_exists('pcntl_async_signals') && function_exists('pcntl_alarm');
     }
 }
