@@ -29,7 +29,7 @@ final class Invoker
     {
         if (!$this->canInvokeWithTimeout()) {
             throw new ProcessControlExtensionNotLoadedException(
-                'The pcntl (process control) extension for PHP is required'
+                'The pcntl (process control) extension for PHP is required',
             );
         }
 
@@ -41,11 +41,11 @@ final class Invoker
                     sprintf(
                         'Execution aborted after %d second%s',
                         $this->timeout,
-                        $this->timeout === 1 ? '' : 's'
-                    )
+                        $this->timeout === 1 ? '' : 's',
+                    ),
                 );
             },
-            true
+            true,
         );
 
         $this->timeout = $timeout;
