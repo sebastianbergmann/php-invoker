@@ -40,8 +40,8 @@ final class Invoker
                     sprintf(
                         'Execution aborted after %d second%s',
                         $timeout,
-                        $timeout === 1 ? '' : 's'
-                    )
+                        $timeout === 1 ? '' : 's',
+                    ),
                 );
             },
         );
