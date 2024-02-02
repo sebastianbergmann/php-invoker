@@ -19,7 +19,6 @@
         "security": "https://github.com/sebastianbergmann/php-invoker/security/policy"
     },
     "prefer-stable": true,
-    "minimum-stability": "dev",
     "config": {
         "platform": {
             "php": "8.2.0"
