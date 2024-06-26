@@ -22,6 +22,8 @@ use Throwable;
 final class Invoker
 {
     /**
+     * @param array<mixed> $arguments
+     *
      * @throws Throwable
      */
     public function invoke(callable $callable, array $arguments, int $timeout): mixed
