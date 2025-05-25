@@ -1,13 +1,13 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
 on:
-  - "pull_request"
-  - "push"
+  - pull_request
+  - push
 
-name: "CI"
+name: CI
 
 env:
-  COMPOSER_ROOT_VERSION: "6.0.x-dev"
+  COMPOSER_ROOT_VERSION: 6.0.x-dev
 
 permissions:
   contents: read
@@ -61,27 +61,27 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "8.3"
-          - "8.4"
-          - "8.5"
+          - 8.3
+          - 8.4
+          - 8.5
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v4"
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@v2"
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: "${{ matrix.php-version }}"
-          coverage: "xdebug"
+          php-version: ${{ matrix.php-version }}
+          coverage: xdebug
 
-      - name: "Install dependencies with Composer"
-        run: "./tools/composer update --no-ansi --no-interaction --no-progress"
+      - name: Install dependencies with Composer
+        run: ./tools/composer update --no-ansi --no-interaction --no-progress
 
-      - name: "Run tests with PHPUnit"
-        run: "vendor/bin/phpunit --coverage-clover=coverage.xml"
+      - name: Run tests with PHPUnit
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
-      - name: "Send code coverage report to Codecov.io"
+      - name: Send code coverage report to Codecov.io
         env:
-          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
-        run: "bash <(curl -s https://codecov.io/bash) || true"
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: bash <(curl -s https://codecov.io/bash) || true
