@@ -2,6 +2,12 @@
 
 All notable changes are documented in this file using the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## [7.0.0] - 2026-02-06
+
+### Removed
+
+* This component is no longer supported on PHP 8.3
+
 ## [6.0.0] - 2025-02-07
 
 ### Removed
@@ -65,6 +71,7 @@ All notable changes are documented in this file using the [Keep a CHANGELOG](htt
 
 * This component is no longer supported on PHP 7.1 and PHP 7.2
 
+[7.0.0]: https://github.com/sebastianbergmann/php-invoker/compare/6.0...main
 [6.0.0]: https://github.com/sebastianbergmann/php-invoker/compare/5.0...6.0.0
 [5.0.1]: https://github.com/sebastianbergmann/php-invoker/compare/5.0.1...5.0.1
 [5.0.0]: https://github.com/sebastianbergmann/php-invoker/compare/4.0...5.0.0
