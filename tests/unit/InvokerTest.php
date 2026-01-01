@@ -32,7 +32,7 @@ final class InvokerTest extends TestCase
     public function testExecutionOfCallableIsNotAbortedWhenTimeoutIsNotReached(): void
     {
         $this->assertTrue(
-            $this->invoker->invoke([$this->callable, 'test'], [0], 1),
+            $this->invoker->invoke($this->callable->test(...), [0], 1),
         );
     }
 
@@ -41,7 +41,7 @@ final class InvokerTest extends TestCase
         $this->expectException(TimeoutException::class);
         $this->expectExceptionMessage('Execution aborted after 1 second');
 
-        $this->invoker->invoke([$this->callable, 'test'], [2], 1);
+        $this->invoker->invoke($this->callable->test(...), [2], 1);
     }
 
     public function testRequirementsCanBeChecked(): void
@@ -52,7 +52,7 @@ final class InvokerTest extends TestCase
     public function testAlarmIsClearedWhenCallableTimeoutIsNotReached(): void
     {
         $this->assertTrue(
-            $this->invoker->invoke([$this->callable, 'test'], [0], 1),
+            $this->invoker->invoke($this->callable->test(...), [0], 1),
         );
 
         try {
