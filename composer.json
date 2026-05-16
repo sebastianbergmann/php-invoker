@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "ext-pcntl": "*",
-        "phpunit/phpunit": "^12.0"
+        "phpunit/phpunit": "^12.5.25"
     },
     "autoload": {
         "classmap": [
