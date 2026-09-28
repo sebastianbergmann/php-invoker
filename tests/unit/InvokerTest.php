@@ -57,6 +57,8 @@ final class InvokerTest extends TestCase
 
         try {
             sleep(1);
+
+            /** @phpstan-ignore catch.neverThrown */
         } catch (TimeoutException) {
             $this->fail('Alarm timeout was not cleared');
         }
@@ -79,6 +81,8 @@ final class InvokerTest extends TestCase
 
         try {
             sleep(1);
+
+            /** @phpstan-ignore catch.neverThrown */
         } catch (TimeoutException) {
             $this->fail('Alarm timeout was not cleared');
         }
