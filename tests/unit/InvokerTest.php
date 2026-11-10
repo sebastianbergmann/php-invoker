@@ -39,7 +39,7 @@ final class InvokerTest extends TestCase
     public function testExecutionOfCallableIsAbortedWhenTimeoutIsReached(): void
     {
         $this->expectException(TimeoutException::class);
-        $this->expectExceptionMessage('Execution aborted after 1 second');
+        $this->expectExceptionMessageIs('Execution aborted after 1 second');
 
         $this->invoker->invoke($this->callable->test(...), [2], 1);
     }
